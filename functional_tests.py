@@ -45,6 +45,7 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys(Keys.ENTER) 
                         # re-ordered arrangement of inputbox to solve 
                         # Unable to locate element: [id="id_list_table"] error
+        time.sleep(1)
         self.check_for_row_in_list_table('1: Buy peacock feathers')
 
         # There is still a text box inviting her to add another item.
