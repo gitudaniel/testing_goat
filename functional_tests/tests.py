@@ -37,6 +37,15 @@ class NewVisitorTest(LiveServerTestCase):
         # She goes to check out its homepage
 
         self.browser.get(self.live_server_url)
+        self.browser.set_window_size(1024, 768)
+
+        # She notices the input box is nicely centered
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+                inputbox.location['x'] + inputbox.size['width'] / 2,
+                512,
+                delta=10
+        )
 
         # She notices the page title and header mention to-do lists
         self.assertIn('To-Do', self.browser.title)
@@ -47,7 +56,7 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertEqual(
                 inputbox.get_attribute('placeholder'),
-                'Enter a to-do item'
+                "Enter a to-do item"
         )
 
         # She types "Buy peacock feathers" into a text box
