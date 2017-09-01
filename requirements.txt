@@ -1,3 +1,4 @@
 Django==1.11.3
 Selenium<4
 gunicorn==19.7.1
+Fabric3==1.13.1.post1
