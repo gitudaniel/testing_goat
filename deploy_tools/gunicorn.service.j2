@@ -1,0 +1,15 @@
+[Unit]
+Description=Gunicorn server for {{ host }}
+
+[Service]
+User={{ ansible_ssh_user }}
+WorkingDirectory=/home/{{ ansible_ssh_user }}/sites/{{ host }}/source
+Restart=on-failure
+ExecStart=/home/{{ ansible_ssh_user }}/sites/{{ host }}/virtualenv/bin/gunicorn \
+    --bind unix:/home/{{ ansible_ssh_user }}/sites/{{ host }}/virtualenv/run/gunicorn.socket \
+    --access-logfile ../access.log \
+    --error-logfile ../error.log \
+    superlists.wsgi:application
+
+[Install]
+WantedBy=mult-user.target
