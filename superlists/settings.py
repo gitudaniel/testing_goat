@@ -28,6 +28,24 @@ SECRET_KEY = '$#bgxg&2uj%ejkxd__^fqh4d0w5*v#^-22q^b72g$dmvll(l!@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#LOGGING
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+        },
+    },
+    'root': {'level': 'INFO'},
+}
+
 ALLOWED_HOSTS = []
 
 
