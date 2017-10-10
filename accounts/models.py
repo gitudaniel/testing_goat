@@ -3,6 +3,7 @@ import uuid
 from django.db import models
 
 
+
 class User(models.Model):
     email = models.EmailField(primary_key=True)
 
@@ -15,4 +16,4 @@ class User(models.Model):
 
 class Token(models.Model):
     email = models.EmailField()
-    uid = models.CharField(default=uuid.uuid4, max_length=40)
+    uid = models.CharField(default=uuid.uuid4, max_length=50)
