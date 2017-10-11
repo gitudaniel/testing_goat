@@ -11,13 +11,13 @@ class NewVisitorTest(FunctionalTest):
         # She goes to check out its homepage
 
         self.browser.get(self.live_server_url)
-        self.browser.set_window_size(1024, 768)
+        self.browser.set_window_size(1280, 720)
 
         # She notices the input box is nicely centered
         inputbox = self.get_item_input_box()
         self.assertAlmostEqual(
                 inputbox.location['x'] + inputbox.size['width'] / 2,
-                512,
+                620,
                 delta=10
         )
 
