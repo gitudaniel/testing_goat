@@ -1,6 +1,11 @@
 import uuid
 
+from django.contrib import auth
 from django.db import models
+
+auth.signals.user_logged_in.disconnect(auth.models.update_last_login)
+    # This prevents the update_last_login from receiving a signal once
+    # a user is logged into the system
 
 
 
