@@ -4,6 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException
 
+from .server_tools import reset_database
+
 import os, time, unittest
 
 
@@ -16,6 +18,7 @@ class FunctionalTest(StaticLiveServerTestCase):
         self.staging_server = os.environ.get('STAGING_SERVER')
         if self.staging_server:
             self.live_server_url = 'http://' + staging_server
+            reset_database(self.staging_server)
         self.browser.implicitly_wait(10)
 
 
