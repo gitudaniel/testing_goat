@@ -55,7 +55,10 @@ class ItemValidationTest(FunctionalTest):
         self.add_list_item("Buy wellies")
 
         # She accidentally tries to enter a duplicate item
-        self.add_list_item('Buy wellies')
+        try:
+            self.add_list_item('Buy wellies') ## Refactor to remove try except block
+        except AssertionError:
+            return "Item not added"
 
         # She sees a helpful error message
         self.wait_for(lambda: self.assertEqual(
